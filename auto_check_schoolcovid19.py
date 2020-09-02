@@ -4,7 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 import time
 
-driver = webdriver.Chrome('P:\\pyseleniumdemos\chromedriver.exe')
+driver = webdriver.Chrome('P:\\stdudent_covidcheck_auto\chromedriver.exe')
 url = 'https://eduro.ice.go.kr/stv_cvd_co00_002.do'
 driver.get(url)
 driver.maximize_window()
