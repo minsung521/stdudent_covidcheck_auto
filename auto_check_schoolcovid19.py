@@ -7,11 +7,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 import time
 
-driver = webdriver.Chrome('D:\stdudent_covidcheck_auto-\chromedriver.exe')
+driver = webdriver.Chrome('D:\stdudent_covidcheck_auto\chromedriver.exe')
 url = 'https://hcs.eduro.go.kr/#/loginHome'
 driver.get(url)
 driver.maximize_window()
 action = ActionChains(driver)
+
+def fourTselect():
+    for i in range(4):
+        action.key_down(Keys.DOWN).pause(0.5).perform()
+    action.key_down(Keys.ENTER).perform()
+
 #
 # (
 #     action.send_keys('용현중학교').key_down(Keys.TAB).pause(1)
@@ -25,6 +31,11 @@ driver.find_element_by_css_selector('#schul_name_input').click()
 time.sleep(0.5)
 driver.find_element_by_css_selector('#sidolabel').click()
 time.sleep(0.5)
+driver.find_element_by_name('인천광역시').click()
+driver.find_element_by_css_selector('#crseScCode').click()
+time.sleep(0.5)
+fourTselect()
+action.send_keys_to_element('#orgname',' 용현중학교')
 # driver.find_element_by_css_selector('#rspns02').click()
 # time.sleep(1)
 # driver.find_element_by_css_selector('#rspns070').click()
